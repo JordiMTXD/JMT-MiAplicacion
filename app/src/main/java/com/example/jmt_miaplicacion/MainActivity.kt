@@ -11,6 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.jmt_miaplicacion.model.Personaje
+import com.example.jmt_miaplicacion.ui.screen.PersonajesScreen
 import com.example.jmt_miaplicacion.ui.theme.JMTMiAplicacionTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,28 +23,19 @@ class MainActivity : ComponentActivity() {
         setContent {
             JMTMiAplicacionTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                    PersonajesScreen(
+                        modifier = Modifier.fillMaxSize().padding(innerPadding).padding(8.dp),
+                        personajes = listOf(
+                            Personaje(
+                                nombre = "nombre",
+                                clase = "default",
+                                modelo = "D&D",
+                                nivel = "0"
+                                )
+                        ),
                     )
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    JMTMiAplicacionTheme {
-        Greeting("Android")
     }
 }
