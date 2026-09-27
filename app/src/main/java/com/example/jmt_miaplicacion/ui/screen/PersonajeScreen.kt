@@ -17,9 +17,10 @@ import com.example.jmt_miaplicacion.ui.components.PersonajeCard
 
 
 @Composable
-fun PersonajesScreen(
+fun PersonajeScreen(
     modifier: Modifier,
-    personajes: List<Personaje>
+    personajes: List<Personaje>,
+    onPersonajeClick: (Long) -> Unit
 ){
     Column(
         modifier = modifier
@@ -30,7 +31,8 @@ fun PersonajesScreen(
 
         PersonajesList(
             modifier = Modifier.fillMaxWidth(),
-            personaje = personajes
+            personaje = personajes,
+            onPersonajeClick = { onPersonajeClick(it)}
         )
     }
 }
@@ -38,7 +40,9 @@ fun PersonajesScreen(
 @Composable
 fun PersonajesList(
     modifier: Modifier,
-    personaje: List<Personaje>
+    personaje: List<Personaje>,
+    onPersonajeClick: (Long) -> Unit
+
 ){
     LazyColumn(
         modifier = modifier,
@@ -58,9 +62,13 @@ fun PersonajeListPreview(){
     PersonajesList(
         modifier = Modifier,
         personaje = listOf(
-            Personaje( nombre = "Krieg", modelo = "Pathfinder", clase = "Barbaro", nivel = "3" ),
-            Personaje( nombre = "Cale", modelo = "D&D", clase = "Mago", nivel = "6" ),
-            Personaje( nombre = "Aang", modelo = "D&D", clase = "Monje", nivel = "6" )
-        )
+            Personaje(id = 0, nombre = "Krieg", modelo = "Pathfinder", clase = "Barbaro", nivel = "3",lore = "" ),
+            Personaje(id = 1, nombre = "Cale", modelo = "D&D", clase = "Mago", nivel = "5",lore = "" ),
+            Personaje(id = 2, nombre = "Aang", modelo = "D&D", clase = "Monje", nivel = "6",lore = "" ),
+            Personaje(id = 3, nombre = "Jimmy", modelo = "Pathfinder", clase = "Pistolero", nivel = "4",lore = "" ),
+            Personaje(id = 4, nombre = "Itthobaal", modelo = "D&D", clase = "Paladin", nivel = "20",lore = "" ),
+            Personaje(id = 5, nombre = "Therrila", modelo = "D&D", clase = "Clerigo", nivel = "20", lore = "" ),
+        ),
+        onPersonajeClick = {}
     )
 }

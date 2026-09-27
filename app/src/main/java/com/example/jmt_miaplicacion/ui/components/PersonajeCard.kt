@@ -85,10 +85,12 @@ private fun PersonajeCardPreview  (){
     PersonajeCard(
         modifier = Modifier,
         personaje = Personaje(
+            id = 0,
             nombre = "nombre",
             clase = "default",
             modelo = "D&D",
-            nivel = "0"
+            nivel = "0",
+            lore = ""
         )
     )
 }
