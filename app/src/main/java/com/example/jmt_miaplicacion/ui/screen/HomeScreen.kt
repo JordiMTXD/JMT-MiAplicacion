@@ -35,7 +35,7 @@ fun HomeScreen(
     personaje: List<Personaje>,
     onFavPersonajeClick: (Long) -> Unit
 ) {
-    Surface() {
+    Surface{
         Column(modifier = modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)
         ){
             FavScroll(
@@ -117,7 +117,7 @@ fun HomeScreenPreview() {
         Personaje(id = 5, nombre = "Therrila", modelo = "D&D", clase = "Clerigo", nivel = "20",lore = "" ),
         Personaje(id = 0, nombre = "Cale", modelo = "D&D", clase = "Mago", nivel = "6",lore = ""),
         Personaje(id = 4, nombre = "Itthobaal", modelo = "D&D", clase = "Paladin", nivel = "20",lore = "" ),
-        )
+    )
 
     HomeScreen(
         modifier = Modifier,

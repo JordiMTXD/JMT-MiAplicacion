@@ -53,9 +53,9 @@ fun PerfilScreen(
             }
         }
         Surface(
-                modifier = Modifier
-                    .weight(0.7f)
-                ){
+            modifier = Modifier
+                .weight(0.7f)
+        ){
             Column(
                 modifier = Modifier.fillMaxWidth().padding(12.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)

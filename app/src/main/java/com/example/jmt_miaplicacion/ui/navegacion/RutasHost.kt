@@ -19,7 +19,7 @@ object Rutas{
     const val DETALLES = "detalles/{personajeId}"
     const val PERFIL = "perfil"
 
-    fun detalleConId(PersonajeId: Long) = "detalle/"
+    fun detalleConId(personajeId: Long) = "detalle/$personajeId"
 }
 
 @Composable
@@ -53,21 +53,20 @@ fun RutasHost(
                 modifier = modifier,
                 personajes = listaPersonajes,
                 onPersonajeClick = {navController.navigate(Rutas.detalleConId(it))}
-                )
+            )
         }
         composable(Rutas.PERFIL){
             PerfilScreen(
                 modifier = modifier,
             )
         }
-        composable(Rutas.DETALLES, arguments = listOf(navArgument("recetaid")
+        composable(Rutas.DETALLES, arguments = listOf(navArgument("personajeid")
         {type = NavType.LongType})){
             DetalleScreen(
                 modifier = modifier,
-                personaje = buscarPersonaje(it.arguments?.getLong("recetaId")!!)
+                personaje = buscarPersonaje(it.arguments?.getLong("personajeId")!!)
             )
         }
-
     }
 }
 

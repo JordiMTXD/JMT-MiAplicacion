@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.example.jmt_miaplicacion.ui.navegacion.BottomBar
 import com.example.jmt_miaplicacion.ui.navegacion.RutasHost
@@ -28,14 +27,10 @@ class MainActivity : ComponentActivity() {
                     topBar = { TopBar(navController = navController) },
                     bottomBar = { BottomBar(navController = navController) }
                 ) { innerPadding ->
-
                     RutasHost(
                         navController = navController,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(innerPadding)
+                        modifier = Modifier.fillMaxSize().padding(innerPadding)
                     )
-
                 }
             }
         }

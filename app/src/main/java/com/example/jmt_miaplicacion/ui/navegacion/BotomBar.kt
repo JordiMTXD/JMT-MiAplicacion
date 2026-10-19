@@ -13,7 +13,7 @@ import com.example.jmt_miaplicacion.R
 fun BottomBar(
     navController: NavHostController
 ){
-    NavigationBar() {
+    NavigationBar{
 
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
@@ -27,8 +27,8 @@ fun BottomBar(
         NavigationBarItem(
             selected = currentRoute == Rutas.PERSONAJES,
             onClick = { navController.navigate(Rutas.PERSONAJES)},
-            icon = { Icon(painter = painterResource(R.drawable.lists_icon), contentDescription = "Recetas")},
-            label = { Text("Recetas")}
+            icon = { Icon(painter = painterResource(R.drawable.lists_icon), contentDescription = "Personaje")},
+            label = { Text("Personaje")}
         )
 
         NavigationBarItem(

@@ -9,7 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -20,39 +19,41 @@ import com.example.jmt_miaplicacion.model.Personaje
 @Composable
 fun PersonajeCard (
     modifier: Modifier,
-    personaje: Personaje
+    personaje: Personaje,
+    onClick: (Long) -> Unit
 ){
     Card(
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth(),
+        onClick = {onClick(personaje.id)}
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(8.dp),
+            modifier = modifier.fillMaxWidth().padding(8.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                modifier = Modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
+                modifier = modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
                 painter = painterResource(R.drawable.image_mockup),
                 contentDescription = "Imagen Personaje"
             )
 
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = modifier.width(16.dp))
 
             Column(
-                modifier = Modifier.weight(1f)
+                modifier = modifier.weight(1f)
             ) {
                 Text(
                     text = personaje.nombre, style = MaterialTheme.typography.titleLarge,
-                    textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth()                    )
+                    textAlign = TextAlign.Center, modifier = modifier.fillMaxWidth()                    )
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = modifier.height(8.dp))
 
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
                     Text(
-                        text = personaje.clase,
+                        text = "Clase: " + personaje.clase,
                         style = MaterialTheme.typography.bodyMedium,
                         textAlign = TextAlign.Center
                     )
@@ -60,19 +61,18 @@ fun PersonajeCard (
                     Spacer(modifier = Modifier.width(16.dp))
 
                     Text(
-                        text = personaje.nivel,
+                        text ="Lvl: " +  personaje.nivel,
                         style = MaterialTheme.typography.bodyMedium,
                         textAlign = TextAlign.Center
                     )
 
-                    Spacer(modifier = Modifier.width(16.dp))
+                    Spacer(modifier = modifier.width(16.dp))
 
                     Text(
-                        text = personaje.modelo,
+                        text = "Modelo: " + personaje.modelo,
                         style = MaterialTheme.typography.bodyMedium,
                         textAlign = TextAlign.Center
                     )
-
                 }
             }
         }
@@ -91,6 +91,7 @@ private fun PersonajeCardPreview  (){
             modelo = "D&D",
             nivel = "0",
             lore = ""
-        )
+        ),
+        onClick = {}
     )
 }
