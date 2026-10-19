@@ -73,9 +73,9 @@ fun RutasHost(
 fun buscarPersonaje(id: Long) : Personaje {
     val listaPersonaje = listOf(
 
-        Personaje(id = 0, nombre = "Krieg", modelo = "Pathfinder", clase = "Barbaro", nivel = "3",lore = ""),
-        Personaje(id = 1, nombre = "Cale", modelo = "D&D", clase = "Mago", nivel = "5",lore = ""),
-        Personaje(id = 2, nombre = "Aang", modelo = "D&D", clase = "Monje", nivel = "6",lore = "")
+        Personaje(id = 1, nombre = "Krieg", modelo = "Pathfinder", clase = "Barbaro", nivel = "3",lore = ""),
+        Personaje(id = 2, nombre = "Cale", modelo = "D&D", clase = "Mago", nivel = "5",lore = ""),
+        Personaje(id = 3, nombre = "Aang", modelo = "D&D", clase = "Monje", nivel = "6",lore = "")
     )
     return listaPersonaje.find { it.id == id }!!
 }

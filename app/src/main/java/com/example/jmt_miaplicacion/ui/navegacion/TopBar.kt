@@ -28,7 +28,7 @@ fun TopBar (
             Text( text =
                 when (currentRoute) {
                     Rutas.HOME -> "Personajes App"
-                    Rutas.DETALLES -> "Receta"
+                    Rutas.DETALLES -> "Personaje Detallado"
                     Rutas.PERFIL -> "Mi perfil"
                     Rutas.PERSONAJES -> "Todos mis Personajes"
                     else -> ""
