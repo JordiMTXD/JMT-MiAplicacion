@@ -41,7 +41,7 @@ fun HomeScreen(
             FavScroll(
                 modifier = Modifier.fillMaxWidth(),
                 personaje = personaje,
-                onPersonajeClick = { onFavPersonajeClick }
+                onPersonajeClick = { onFavPersonajeClick(it) }
             )
         }
     }
@@ -63,14 +63,11 @@ fun FavScroll (
             modifier = Modifier.padding(all = 4.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(
-                items = personaje,
-                key = { it.id }
-            ) { personajeItem ->
+            items(personaje){
                 PersonajeHomeCard(
                     modifier = Modifier,
-                    personaje = personajeItem,
-                    onClick = { onPersonajeClick(personajeItem.id) }
+                    personaje = it,
+                    onClick = {onPersonajeClick(it)}
                 )
             }
         }
@@ -114,9 +111,12 @@ fun PersonajeHomeCard(
 @Composable
 fun HomeScreenPreview() {
     val personaje = listOf(
-        Personaje(id = 5, nombre = "Therrila", modelo = "D&D", clase = "Clerigo", nivel = "20",lore = "" ),
-        Personaje(id = 0, nombre = "Cale", modelo = "D&D", clase = "Mago", nivel = "6",lore = ""),
+        Personaje(id = 0, nombre = "Krieg", modelo = "Pathfinder", clase = "Barbaro", nivel = "3",lore = "" ),
+        Personaje(id = 1, nombre = "Cale", modelo = "D&D", clase = "Mago", nivel = "5",lore = "" ),
+        Personaje(id = 2, nombre = "Aang", modelo = "D&D", clase = "Monje", nivel = "6",lore = "" ),
+        Personaje(id = 3, nombre = "Jimmy", modelo = "Pathfinder", clase = "Pistolero", nivel = "4",lore = "" ),
         Personaje(id = 4, nombre = "Itthobaal", modelo = "D&D", clase = "Paladin", nivel = "20",lore = "" ),
+        Personaje(id = 5, nombre = "Therrila", modelo = "D&D", clase = "Clerigo", nivel = "20", lore = "" ),
     )
 
     HomeScreen(

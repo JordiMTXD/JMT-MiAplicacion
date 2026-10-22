@@ -38,22 +38,20 @@ fun DetalleScreen(
             color = MaterialTheme.colorScheme.secondaryContainer
         ) {
             Column(
-                modifier = Modifier
-                    .padding(12.dp)
-                    .fillMaxWidth(),
+                modifier = Modifier.padding(12.dp).fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 Image(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(1f),
+                    modifier = Modifier.fillMaxWidth().aspectRatio(1f),
                     painter = painterResource(R.drawable.image_mockup),
                     contentDescription = "Imagen Personaje"
                 )
 
                 Text(
-                    text = "Nombre : " + personaje.nombre, style = MaterialTheme.typography.titleLarge,
-                    textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    text = "Nombre : " + personaje.nombre,
+                    style = MaterialTheme.typography.titleLarge,
+                    textAlign = TextAlign.Center,
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
