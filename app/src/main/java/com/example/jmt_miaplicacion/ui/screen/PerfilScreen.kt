@@ -30,7 +30,7 @@ fun PerfilScreen(
         modifier = modifier
     )  {
         Surface(
-            modifier = modifier.fillMaxWidth().weight(0.3f,true)
+            modifier = modifier.fillMaxWidth().weight(0.3f,true),
         ) {
             Column(
                 modifier = modifier.padding(10.dp).fillMaxSize(),
@@ -60,7 +60,7 @@ fun PerfilScreen(
                 modifier = Modifier.fillMaxWidth().padding(12.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Text("3 personajes ", style = MaterialTheme.typography.bodyLarge)
+                Text("5 personajes ", style = MaterialTheme.typography.bodyLarge)
             }
         }
     }
