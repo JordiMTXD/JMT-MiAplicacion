@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.example.jmt_miaplicacion.R
 import com.example.jmt_miaplicacion.model.Personaje
 
+/// Pasar esto a un LazyColum para hacerlo un scroll
 @Composable
 fun DetalleScreen(
     modifier: Modifier,
