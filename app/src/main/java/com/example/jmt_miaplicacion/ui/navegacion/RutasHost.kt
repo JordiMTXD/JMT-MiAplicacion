@@ -19,7 +19,7 @@ object Rutas{
     const val DETALLES = "detalles/{personajeId}"
     const val PERFIL = "perfil"
 
-    fun detalleConId(personajeId: Long) = "detalle/$personajeId"
+    fun detalleConId(personajeId: Long) = "detalles/$personajeId"
 }
 
 @Composable
