@@ -22,6 +22,7 @@ fun TopBar (
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
+    val personajeId = navBackStackEntry?.arguments?.getLong("personajeId")
 
     TopAppBar(
         title = {
@@ -31,6 +32,8 @@ fun TopBar (
                     Rutas.DETALLES -> "Personaje Detallado"
                     Rutas.PERFIL -> "Mi perfil"
                     Rutas.PERSONAJES -> "Todos mis Personajes"
+                    Rutas.EDITAR_PERSONAJE -> "Editar Personaje"
+                    Rutas.NUEVO_PERSONAJE -> "Nuevo Personaje"
                     else -> ""
                 },
                 style = MaterialTheme.typography.headlineLarge
@@ -40,6 +43,13 @@ fun TopBar (
             if(currentRoute != Rutas.HOME) {
                 IconButton(onClick = {navController.popBackStack() }) {
                     Icon(painter = painterResource(R.drawable.arrow_back), contentDescription = "Volver" )
+                }
+            }
+        },
+        actions = {
+            if (currentRoute == Rutas.DETALLES && personajeId != null){
+                IconButton(onClick = {navController.navigate(Rutas.personajeFormConId(personajeId))}) {
+                    Icon(painter = painterResource(R.drawable.edit_icon), contentDescription = "edit")
                 }
             }
         },

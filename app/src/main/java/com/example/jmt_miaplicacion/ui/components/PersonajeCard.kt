@@ -89,7 +89,7 @@ private fun PersonajeCardPreview  (){
             nombre = "nombre",
             clase = "default",
             modelo = "D&D",
-            nivel = "0",
+            nivel = 0,
             lore = ""
         ),
         onClick = {}
