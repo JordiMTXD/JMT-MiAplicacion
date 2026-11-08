@@ -25,14 +25,13 @@ import androidx.compose.ui.unit.dp
 import com.example.jmt_miaplicacion.R
 import com.example.jmt_miaplicacion.model.Personaje
 
-/// Pasar esto a un LazyColum para hacerlo un scroll
 @Composable
 fun DetalleScreen(
     modifier: Modifier,
     personaje: Personaje
 ) {
     Column(
-        modifier = modifier
+        modifier = modifier.verticalScroll(rememberScrollState())
     ) {
         Surface(
             modifier = Modifier.fillMaxWidth(),
@@ -86,24 +85,27 @@ fun DetalleScreen(
             }
         }
         Surface(
-            modifier = Modifier
-                .fillMaxSize()
-
+            modifier = Modifier.fillMaxSize()
         ){
 
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(12.dp)
-                    .verticalScroll(rememberScrollState())
             ) {
                 Text(
                     text = personaje.lore,
                     style = MaterialTheme.typography.bodyLarge
                 )
+
+                Spacer(modifier = Modifier.width(16.dp))
+
+                Image(
+                    modifier = Modifier.fillMaxWidth().aspectRatio(1f),
+                    painter = painterResource(R.drawable.image_mockup),
+                    contentDescription = "Imagen Personaje"
+                )
             }
-
-
         }
     }
 }
@@ -118,7 +120,7 @@ fun DetalleScreenPreview(){
             nombre = "Krieg",
             modelo = "D&D",
             clase = "Barbaro",
-            nivel = "3",
+            nivel = 3,
             lore = "Lorem ipsum dolor sit amet consectetur adipiscing elit pretium, mattis tortor cubilia dui ridiculus lacinia netus natoque, ut donec convallis non libero inceptos purus."
         )
     )
